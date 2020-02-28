@@ -12,6 +12,17 @@ public class RandomPlayer extends Player {
 
     @Override
     public void makeMove() {
+        RandomGenerator generateRandom = new RandomGenerator();
+        boolean placed = false;
 
+        while(!placed) {
+            int num = generateRandom.discrete(0, 2);
+            int num2 = generateRandom.discrete(0, 2);
+
+            if (this.getBoard().getMark(num, num2) == Constants.SPACE_CHAR) {
+                this.getBoard().addMark(num, num2, this.getMark());
+                placed = true;
+            }
+        }
     }
 }

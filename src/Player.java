@@ -45,14 +45,21 @@ public abstract class Player {
             this.board.display();
         }
 
-        if (this.board.xWins())
-            System.out.println("pack1.Player X has won!");
-        else if (this.board.oWins())
-            System.out.println("pack1.Player O has won!");
-        else if (this.board.isFull())
+        if (this.board.xWins()) {
+            if (this.getMark() == Constants.LETTER_X)
+                System.out.println(this.getName() + " who was playing as " + this.getMark() + " has won!");
+            else
+                System.out.println(this.getOpponent().getName() + " who was playing as " + this.getOpponent().getMark() + " has won!");
+        } else if (this.board.oWins()) {
+            if (this.getMark() == Constants.LETTER_O)
+                System.out.println(this.getName() + " who was playing as " + this.getMark() + " has won!");
+            else
+                System.out.println(this.getOpponent().getName() + " who was playing as " + this.getOpponent().getMark() + " has won!");
+        } else if (this.board.isFull()) {
             System.out.println("It was a Tie!");
-        else
+        } else {
             this.opponent.play();
+        }
     }
 
     /**

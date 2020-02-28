@@ -10,6 +10,13 @@ public class Board implements Constants {
 	private char theBoard[][];
 	private int markCount;
 
+	public int getMarkCount() {
+		return markCount;
+	}
+	public void setMarkCount(int markCount) {
+		this.markCount = markCount;
+	}
+
 
 	/**
 	 * The pack1.Board function creates a 3x3 empty board filling it with empty spaces

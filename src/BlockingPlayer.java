@@ -25,9 +25,11 @@ public class BlockingPlayer extends RandomPlayer {
 
     private boolean testForBlocking(int i, int j) {
         if (this.getBoard().getMark(i, j) == Constants.SPACE_CHAR) {
+            int mark = this.getBoard().getMarkCount();
             this.getBoard().addMark(i, j, this.getOpponent().getMark());
             int winner = this.getBoard().checkWinner(this.getOpponent().getMark());
             this.getBoard().addMark(i, j, Constants.SPACE_CHAR);
+            this.getBoard().setMarkCount(mark);
             if (winner == 1)
                 return true;
             else
